@@ -23,6 +23,7 @@ class MyGUI(QMainWindow):
         self.actionOpen_Directory.triggered.connect(self.open_directory)
         self.pushButton.clicked.connect(self.next_image)
         self.pushButton_2.clicked.connect(self.prev_image)
+        self.actionExit.triggered.connect(self.exit_viewer)
 
     def resizeEvent(self, event):
         try:
@@ -72,6 +73,9 @@ class MyGUI(QMainWindow):
             pixmap = QtGui.QPixmap(self.current_file)
             pixmap = pixmap.scaled(self.width(), self.height())
             self.label.setPixmap(pixmap)
+
+    def exit_viewer(self):
+        self.close()
 
 
 def main():
